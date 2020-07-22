@@ -18,7 +18,7 @@ class Menu extends React.Component {
     const list = links.map((item, key) => (
       <div key={key}>
         <a
-          href={`/gitrain/?q=${item.query}`}
+          href={`/gitrain/#/popular/?q=${item.query}`}
           style={{ color: r === item.query ? "red" : "black" }}
         >
           {item.title}
