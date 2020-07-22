@@ -12,7 +12,7 @@ class Menu extends React.Component {
       { title: "Python", query: "python" },
     ];
 
-    const r = window.location.search.split("=").slice(1).toString();
+    const r = window.location.href.split("=").slice(1).toString();
     console.log(r);
 
     const list = links.map((item, key) => (
