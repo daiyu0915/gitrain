@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "70f0649f1b3b5e1063fe";
+/******/ 	var hotCurrentHash = "b0e6c7386630b276911c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -42708,7 +42708,7 @@ var Menu = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
           key: key
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
-          href: "/gitrain/#/popular/?q=".concat(item.query),
+          href: "/gitrain/?q=".concat(item.query),
           style: {
             color: r === item.query ? "red" : "black"
           }
