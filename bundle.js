@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "c1281e9153d7986ce57d";
+/******/ 	var hotCurrentHash = "70f0649f1b3b5e1063fe";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -42702,7 +42702,7 @@ var Menu = /*#__PURE__*/function (_React$Component) {
         title: "Python",
         query: "python"
       }];
-      var r = window.location.search.split("=").slice(1).toString();
+      var r = window.location.href.split("=").slice(1).toString();
       console.log(r);
       var list = links.map(function (item, key) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
