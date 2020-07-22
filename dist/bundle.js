@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "70f0649f1b3b5e1063fe";
+/******/ 	var hotCurrentHash = "9765852dfd8c4b76307d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -42109,8 +42109,8 @@ var Content = /*#__PURE__*/function (_React$Component) {
               // }
               // console.log(GetQueryString("q"));
               page = clear ? 1 : _this.state.page;
-              q = window.location.search.split("=").slice(1).toString();
-              console.log(q);
+              q = window.location.href.split("=").slice(1).toString();
+              console.log("q", q);
               url = "https://api.github.com/search/repositories?q=stars:>1+language:".concat(q, "&sort=stars&order=desc&type=Repositories&page=").concat(page);
               console.log("url", url);
 
@@ -42189,6 +42189,14 @@ var Content = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.search();
+    } // eslint-disable-next-line react/no-deprecated
+
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props.query !== nextProps.query) {
+        this.search(true);
+      }
     }
   }, {
     key: "componentDidUpdate",
@@ -42645,8 +42653,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/styles/git.css */ "./src/styles/git.css");
-/* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_git_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/styles/git.css */ "./src/styles/git.css");
+/* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_git_css__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -42666,6 +42675,8 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
   return a;
 };
 
+
+ // import Content from "@/components/popular/Content";
 
 
 
@@ -42705,14 +42716,27 @@ var Menu = /*#__PURE__*/function (_React$Component) {
       var r = window.location.href.split("=").slice(1).toString();
       console.log(r);
       var list = links.map(function (item, key) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
-          key: key
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
-          href: "/gitrain/#/popular/?q=".concat(item.query),
-          style: {
-            color: r === item.query ? "red" : "black"
-          }
-        }, item.title));
+        return (
+          /*#__PURE__*/
+          // <div key={key}>
+          //   <a
+          //     href={`/gitrain/#/popular/?q=${item.query}`}
+          //     style={{ color: r === item.query ? "red" : "black" }}
+          //   >
+          //     {item.title}
+          //   </a>
+          // </div>
+          react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+            key: key
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
+            to: {
+              pathname: "/popular/?q=".concat(item.query)
+            },
+            style: {
+              color: r === item.query ? "red" : "black"
+            }
+          }, item.title)))
+        );
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("ul", {
         id: "headbar"
@@ -42730,7 +42754,8 @@ var Menu = /*#__PURE__*/function (_React$Component) {
   return Menu;
 }(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
 
-var _default = Menu;
+var _default = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["withRouter"])(Menu);
+
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 

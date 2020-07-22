@@ -26,11 +26,19 @@ class Content extends React.Component {
       end: false,
       page: 1,
       items: [],
+   
     };
   }
 
   componentDidMount() {
     this.search();
+  }
+
+  // eslint-disable-next-line react/no-deprecated
+  componentWillReceiveProps(nextProps) {
+    if (this.props.query !== nextProps.query) {
+      this.search(true);
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -53,8 +61,8 @@ class Content extends React.Component {
     // }
     // console.log(GetQueryString("q"));
     const page = clear ? 1 : this.state.page;
-    const q = window.location.search.split("=").slice(1).toString();
-    console.log(q);
+    const q = window.location.href.split("=").slice(1).toString();
+    console.log("q", q);
     const url = `https://api.github.com/search/repositories?q=stars:>1+language:${q}&sort=stars&order=desc&type=Repositories&page=${page}`;
     console.log("url", url);
     this.setState({ loading: true });
