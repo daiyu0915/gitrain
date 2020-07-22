@@ -9,15 +9,15 @@ exports["default"] = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
+
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
@@ -25,11 +25,23 @@ var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
-require("./components/popular/git.css");
+var _reactInfiniteScroller = _interopRequireDefault(require("react-infinite-scroller"));
+
+var _LazyLd = _interopRequireDefault(require("@/components/popular/LazyLd"));
+
+var _Loading = _interopRequireDefault(require("@/components/popular/Loading"));
+
+require("font-awesome/css/font-awesome.min.css");
+
+require("font-awesome/less/font-awesome.less");
+
+require("@/styles/git.css");
 
 (function () {
   var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
@@ -44,169 +56,121 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
   return a;
 };
 
-var Loading = /*#__PURE__*/function (_React$Component) {
-  (0, _inherits2["default"])(Loading, _React$Component);
+// class Loading extends React.Component {
+//     render() {
+//       return <div className="load">
+//         loading...
+//         </div>;
+//     }
+//   }
+var Content = /*#__PURE__*/function (_React$Component) {
+  (0, _inherits2["default"])(Content, _React$Component);
 
-  var _super = _createSuper(Loading);
-
-  function Loading() {
-    (0, _classCallCheck2["default"])(this, Loading);
-    return _super.apply(this, arguments);
-  }
-
-  (0, _createClass2["default"])(Loading, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react["default"].createElement("div", {
-        className: "load"
-      }, "loading...");
-    }
-  }, {
-    key: "__reactstandin__regenerateByEval",
-    // @ts-ignore
-    value: function __reactstandin__regenerateByEval(key, code) {
-      // @ts-ignore
-      this[key] = eval(code);
-    }
-  }]);
-  return Loading;
-}(_react["default"].Component);
-
-var LazyLd = /*#__PURE__*/function (_React$Component2) {
-  (0, _inherits2["default"])(LazyLd, _React$Component2);
-
-  var _super2 = _createSuper(LazyLd);
-
-  function LazyLd() {
-    var _this;
-
-    (0, _classCallCheck2["default"])(this, LazyLd);
-    _this = _super2.call(this);
-    _this.state = {
-      done: false
-    };
-    return _this;
-  }
-
-  (0, _createClass2["default"])(LazyLd, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      var _this2 = this;
-
-      // 创建一个虚拟图片
-      var img = new Image(); // 发出请求，请求图片
-
-      img.src = this.props.src; // 当图片加载完毕
-
-      img.onload = function () {
-        _this2.setState({
-          done: true
-        });
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react["default"].createElement("div", null, this.state.done ? /*#__PURE__*/_react["default"].createElement("img", {
-        style: {
-          'width': this.props.width + 'px',
-          'height': this.props.height + 'px'
-        },
-        src: this.props.src,
-        alt: "no"
-      }) : /*#__PURE__*/_react["default"].createElement("img", {
-        style: {
-          'width': this.props.width + 'px',
-          'height': this.props.height + 'px'
-        },
-        src: "https://img.devrant.com/devrant/rant/r_228415_fDWmt.gif",
-        alt: "no"
-      }));
-    }
-  }, {
-    key: "__reactstandin__regenerateByEval",
-    // @ts-ignore
-    value: function __reactstandin__regenerateByEval(key, code) {
-      // @ts-ignore
-      this[key] = eval(code);
-    }
-  }]);
-  return LazyLd;
-}(_react["default"].Component);
-
-var Content = /*#__PURE__*/function (_React$Component3) {
-  (0, _inherits2["default"])(Content, _React$Component3);
-
-  var _super3 = _createSuper(Content);
+  var _super = _createSuper(Content);
 
   function Content(props) {
-    var _this3;
+    var _this;
 
     (0, _classCallCheck2["default"])(this, Content);
-    _this3 = _super3.call(this, props);
-    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this3), "search", /*#__PURE__*/(0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-      var GetQueryString, q, url, res;
+    _this = _super.call(this, props);
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "search", /*#__PURE__*/(0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+      var clear,
+          page,
+          q,
+          url,
+          res,
+          _args = arguments;
       return _regenerator["default"].wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              GetQueryString = function _GetQueryString(name) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-                var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+              clear = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
+              // 另一种获取地址方法
+              // function GetQueryString(name) {
+              //   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+              //   var r = window.location.search.substr(1).match(reg);  //获取url中"?"符后的字符串并正则匹配
+              //   var context = "";
+              //   if (r != null)
+              //     context = r[2];
+              //   reg = null;
+              //   r = null;
+              //   return context === null || context === "" || context === "undefined" ? "" : context;
+              // }
+              // console.log(GetQueryString("q"));
+              page = clear ? 1 : _this.state.page;
+              q = window.location.search.split("=").slice(1).toString();
+              console.log(q);
+              url = "https://api.github.com/search/repositories?q=stars:>1+language:".concat(q, "&sort=stars&order=desc&type=Repositories&page=").concat(page);
+              console.log("url", url);
 
-                var context = "";
-                if (r != null) context = r[2];
-                reg = null;
-                r = null;
-                return context === null || context === "" || context === "undefined" ? "" : context;
-              };
-
-              console.log(GetQueryString("q"));
-              q = GetQueryString("q");
-              url = "https://api.github.com/search/repositories?q=stars:>1+language:".concat(q, "&sort=stars&order=desc&type=Repositories");
-              console.log('url', url);
-
-              _this3.setState({
+              _this.setState({
                 loading: true
-              });
+              }); //
+              //   try {
+              //     const res = await axios.get(url)
+              //     console.log('res', res.data)
+              //     this.setState({
+              //       items: res.data.items
+              //     })
+              //   } catch (e) {
+              //     console.log('error', e)
+              //   }
+              //   this.setState({ loading: false });
+              // }
 
-              _context.prev = 6;
-              _context.next = 9;
+
+              if (clear) {
+                _this.setState({
+                  items: []
+                });
+              }
+
+              _context.prev = 8;
+              _context.next = 11;
               return _axios["default"].get(url);
 
-            case 9:
+            case 11:
               res = _context.sent;
-              console.log('res', res.data);
+              console.log("res", res.data);
 
-              _this3.setState({
-                items: res.data.items
+              _this.setState(function (state) {
+                return {
+                  items: clear ? res.data.items : [].concat((0, _toConsumableArray2["default"])(state.items), (0, _toConsumableArray2["default"])(res.data.items)),
+                  page: clear ? 1 : state.page + 1
+                };
               });
 
-              _context.next = 17;
+              _context.next = 20;
               break;
 
-            case 14:
-              _context.prev = 14;
-              _context.t0 = _context["catch"](6);
-              console.log('error', _context.t0);
+            case 16:
+              _context.prev = 16;
+              _context.t0 = _context["catch"](8);
+              console.log("error", _context.t0);
 
-            case 17:
-              _this3.setState({
+              _this.setState({
+                end: true
+              });
+
+            case 20:
+              _this.setState({
                 loading: false
               });
 
-            case 18:
+            case 21:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[6, 14]]);
+      }, _callee, null, [[8, 16]]);
     })));
-    _this3.state = {
+    _this.state = {
       loading: false,
+      end: false,
+      page: 1,
       items: []
     };
-    return _this3;
+    return _this;
   }
 
   (0, _createClass2["default"])(Content, [{
@@ -215,12 +179,23 @@ var Content = /*#__PURE__*/function (_React$Component3) {
       this.search();
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.query !== prevProps.query) {
+        this.search(true);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var loading = this.state.loading;
-      var cards = this.state.items.slice(0, 10).map(function (item, key) {
+      var _this2 = this;
+
+      var _this$state = this.state,
+          loading = _this$state.loading,
+          end = _this$state.end;
+      var cards = this.state.items.map(function (item, key) {
         return /*#__PURE__*/_react["default"].createElement("div", {
-          className: "card"
+          className: "card col-lg-3 col-md-3 col-sm-6 col-6"
         }, /*#__PURE__*/_react["default"].createElement("div", {
           className: "it",
           key: item.id
@@ -228,7 +203,7 @@ var Content = /*#__PURE__*/function (_React$Component3) {
           className: "num"
         }, "#", key + 1), /*#__PURE__*/_react["default"].createElement("div", {
           className: "img"
-        }, /*#__PURE__*/_react["default"].createElement(LazyLd, {
+        }, /*#__PURE__*/_react["default"].createElement(_LazyLd["default"], {
           width: 150,
           height: 150,
           src: item.owner.avatar_url
@@ -246,17 +221,24 @@ var Content = /*#__PURE__*/function (_React$Component3) {
         }, item.name)), /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("i", {
           className: "fa fa-star",
           id: "s"
-        }), /*#__PURE__*/_react["default"].createElement("span", null, item.stargazers_count, "  stars")), /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("i", {
+        }), /*#__PURE__*/_react["default"].createElement("span", null, item.stargazers_count, " stars")), /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("i", {
           className: "fa fa-code-fork",
           id: "c"
         }), /*#__PURE__*/_react["default"].createElement("span", null, item.forks_count, " forks")), /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("i", {
           className: "fa fa-exclamation-triangle",
           id: "t"
-        }), /*#__PURE__*/_react["default"].createElement("span", null, item.open_issues_count, "  open_issues")))));
+        }), /*#__PURE__*/_react["default"].createElement("span", null, item.open_issues_count, " open_issues")))));
       });
-      return /*#__PURE__*/_react["default"].createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_reactInfiniteScroller["default"], {
+        initialLoad: false,
+        loadMore: function loadMore() {
+          return _this2.search(false);
+        },
+        hasMore: !loading || end,
+        loader: null
+      }, /*#__PURE__*/_react["default"].createElement("div", {
         className: "content"
-      }, loading ? /*#__PURE__*/_react["default"].createElement(Loading, null) : cards);
+      }, cards), loading && /*#__PURE__*/_react["default"].createElement(_Loading["default"], null)));
     }
   }, {
     key: "__reactstandin__regenerateByEval",
@@ -281,10 +263,8 @@ exports["default"] = _default2;
     return;
   }
 
-  reactHotLoader.register(Loading, "Loading", "D:\\pric\\zgith\\src\\components\\popular\\Content.js");
-  reactHotLoader.register(LazyLd, "LazyLd", "D:\\pric\\zgith\\src\\components\\popular\\Content.js");
-  reactHotLoader.register(Content, "Content", "D:\\pric\\zgith\\src\\components\\popular\\Content.js");
-  reactHotLoader.register(_default, "default", "D:\\pric\\zgith\\src\\components\\popular\\Content.js");
+  reactHotLoader.register(Content, "Content", "D:\\pric\\zgit\\gitrain\\src\\components\\popular\\Content.js");
+  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\components\\popular\\Content.js");
 })();
 
 ;
