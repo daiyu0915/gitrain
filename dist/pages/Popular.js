@@ -21,11 +21,11 @@ var _react = _interopRequireDefault(require("react"));
 
 require("font-awesome/less/font-awesome.less");
 
-var _Content = _interopRequireDefault(require("../components/popular/Content.js"));
+var _Content = _interopRequireDefault(require("@/components/popular/Content"));
 
-var _Header = _interopRequireDefault(require("../components/popular/Header.js"));
+var _Header = _interopRequireDefault(require("@/components/popular/Header"));
 
-require("./git.css");
+require("@/styles/git.css");
 
 (function () {
   var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
@@ -53,9 +53,18 @@ var Popular = /*#__PURE__*/function (_React$Component) {
   (0, _createClass2["default"])(Popular, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_Header["default"], {
+      return /*#__PURE__*/_react["default"].createElement("div", {
+        style: {
+          textAlign: "center"
+        }
+      }, /*#__PURE__*/_react["default"].createElement(_Header["default"], {
         onClick: this.onClick
-      }), /*#__PURE__*/_react["default"].createElement(_Content["default"], null));
+      }), /*#__PURE__*/_react["default"].createElement("div", {
+        style: {
+          display: "flex",
+          justifyContent: "center"
+        }
+      }, /*#__PURE__*/_react["default"].createElement(_Content["default"], null)));
     }
   }, {
     key: "__reactstandin__regenerateByEval",
@@ -80,8 +89,8 @@ exports["default"] = _default2;
     return;
   }
 
-  reactHotLoader.register(Popular, "Popular", "D:\\pric\\zgith\\src\\pages\\Popular.js");
-  reactHotLoader.register(_default, "default", "D:\\pric\\zgith\\src\\pages\\Popular.js");
+  reactHotLoader.register(Popular, "Popular", "D:\\pric\\zgit\\gitrain\\src\\pages\\Popular.js");
+  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\pages\\Popular.js");
 })();
 
 ;
