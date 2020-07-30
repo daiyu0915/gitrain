@@ -29,22 +29,19 @@ class Player extends React.Component {
     });
   };
 
-  playerBlur1 = (e) => {
-    // console.log("触发")
+ Blur1 = (e) => {
     this.setState({
       inputValue: e.target.value,
     });
   };
 
-  playerBlur2 = (e) => {
-    // console.log("触发")
+ Blur2 = (e) => {
     this.setState({
       inputValue2: e.target.value,
     });
   };
 
   onClick = () => {
-    console.log("点击");
     const { inputValue } = this.state;
     this.setState({
       player1: inputValue,
@@ -52,7 +49,6 @@ class Player extends React.Component {
   };
 
   onClick2 = () => {
-    console.log("点击2");
     const { inputValue2 } = this.state;
     this.setState({
       player2: inputValue2,

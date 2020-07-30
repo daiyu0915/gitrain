@@ -240,10 +240,10 @@ var Battle = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./src/pages/Battle/Combination.js":
-/*!*****************************************!*\
-  !*** ./src/pages/Battle/Combination.js ***!
-  \*****************************************/
+/***/ "./src/pages/Battle/Battle1.js":
+/*!*************************************!*\
+  !*** ./src/pages/Battle/Battle1.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -292,21 +292,20 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
 
 
-var Combination = /*#__PURE__*/function (_React$Component) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(Combination, _React$Component);
+var Battle1 = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(Battle1, _React$Component);
 
-  var _super = _createSuper(Combination);
+  var _super = _createSuper(Battle1);
 
-  function Combination(props) {
+  function Battle1(props) {
     var _this;
 
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Combination);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Battle1);
 
     _this = _super.call(this, props);
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "componentDidMount", function () {
       if (window.location.hash !== "#/battle") {
-        console.log("刷新啊啊啊啊啊");
         var myhref = window.location.href.split("?")[1].split("&");
         console.log("href", window.location.href.split("?")[1].split("&"));
         var play1 = myhref[0].split("=")[1];
@@ -321,8 +320,6 @@ var Combination = /*#__PURE__*/function (_React$Component) {
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "startBattle", function (p1, p2) {
-      console.log("battle了");
-
       _this.setState({
         player1: p1,
         player2: p2
@@ -345,7 +342,7 @@ var Combination = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Combination, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Battle1, [{
     key: "render",
     value: function render() {
       var _this$state = this.state,
@@ -373,10 +370,10 @@ var Combination = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return Combination;
+  return Battle1;
 }(react__WEBPACK_IMPORTED_MODULE_7___default.a.Component);
 
-var _default = Combination;
+var _default = Battle1;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
@@ -387,8 +384,8 @@ var _default = Combination;
     return;
   }
 
-  reactHotLoader.register(Combination, "Combination", "D:\\pric\\zgit\\gitrain\\src\\pages\\Battle\\Combination.js");
-  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\pages\\Battle\\Combination.js");
+  reactHotLoader.register(Battle1, "Battle1", "D:\\pric\\zgit\\gitrain\\src\\pages\\Battle\\Battle1.js");
+  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\pages\\Battle\\Battle1.js");
 })();
 
 ;
@@ -482,22 +479,19 @@ var Player = /*#__PURE__*/function (_React$Component) {
       });
     });
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "playerBlur1", function (e) {
-      // console.log("触发")
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "Blur1", function (e) {
       _this.setState({
         inputValue: e.target.value
       });
     });
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "playerBlur2", function (e) {
-      // console.log("触发")
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "Blur2", function (e) {
       _this.setState({
         inputValue2: e.target.value
       });
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "onClick", function () {
-      console.log("点击");
       var inputValue = _this.state.inputValue;
 
       _this.setState({
@@ -506,7 +500,6 @@ var Player = /*#__PURE__*/function (_React$Component) {
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "onClick2", function () {
-      console.log("点击2");
       var inputValue2 = _this.state.inputValue2;
 
       _this.setState({
@@ -795,8 +788,7 @@ var Result = /*#__PURE__*/function (_React$Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this$props = this.props, player1 = _this$props.player1, player2 = _this$props.player2;
-                console.log("这里的值", player1, player2);
-                _context.next = 4;
+                _context.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_9___default.a.get("https://api.github.com/users/".concat(player1)).then(function (res) {
                   _this2.setState({
                     player1: _objectSpread(_objectSpread({}, res.data), {}, {
@@ -804,15 +796,15 @@ var Result = /*#__PURE__*/function (_React$Component) {
                     })
                   });
                 })["catch"](function (err) {
-                  console.log("这里的错误", err);
+                  console.log(err);
 
                   _this2.setState({
                     error: err.response.statusText
                   });
                 });
 
-              case 4:
-                _context.next = 6;
+              case 3:
+                _context.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_9___default.a.get("https://api.github.com/users/".concat(player2)).then(function (res) {
                   _this2.setState({
                     player2: _objectSpread(_objectSpread({}, res.data), {}, {
@@ -820,14 +812,12 @@ var Result = /*#__PURE__*/function (_React$Component) {
                     })
                   });
                 })["catch"](function (err) {
-                  console.log("这里的错误", err);
-
                   _this2.setState({
                     error: err.response.statusText
                   });
                 });
 
-              case 6:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -854,8 +844,7 @@ var Result = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
           className: _pages_Battle_battle_less__WEBPACK_IMPORTED_MODULE_10___default.a.tac
         }, error || "loading...");
-      } // console.log("render时候",player1,player2)
-
+      }
 
       if (player1.public_repos > player2.public_repos) {
         player1.role = "winner";

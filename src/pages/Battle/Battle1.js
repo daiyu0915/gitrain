@@ -2,7 +2,7 @@ import React from "react";
 import Battle from "@/pages/Battle/Battle";
 import Result from "@/pages/Battle/Result";
 
-class Combination extends React.Component {
+class Battle1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,6 @@ class Combination extends React.Component {
 
   componentDidMount = () => {
     if (window.location.hash !== "#/battle") {
-      console.log("刷新啊啊啊啊啊");
       const myhref = window.location.href.split("?")[1].split("&");
       console.log("href", window.location.href.split("?")[1].split("&"));
       const play1 = myhref[0].split("=")[1];
@@ -27,7 +26,6 @@ class Combination extends React.Component {
   };
 
   startBattle = (p1, p2) => {
-    console.log("battle了");
     this.setState({
       player1: p1,
       player2: p2,
@@ -50,4 +48,4 @@ class Combination extends React.Component {
     return <Battle startBattle={this.startBattle} />;
   }
 }
-export default Combination;
+export default Battle1;

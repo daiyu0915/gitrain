@@ -18,7 +18,6 @@ class Result extends React.Component {
 
   async componentDidMount() {
     const { player1, player2 } = this.props;
-    console.log("这里的值", player1, player2);
     await axios
       .get(`https://api.github.com/users/${player1}`)
       .then((res) => {
@@ -27,7 +26,7 @@ class Result extends React.Component {
         });
       })
       .catch((err) => {
-        console.log("这里的错误", err);
+        console.log(err);
         this.setState({ error: err.response.statusText });
       });
     await axios
@@ -38,7 +37,6 @@ class Result extends React.Component {
         });
       })
       .catch((err) => {
-        console.log("这里的错误", err);
         this.setState({ error: err.response.statusText });
       });
   }
@@ -49,7 +47,6 @@ class Result extends React.Component {
     if (player1.loading || player2.loading) {
       return <div className={styles.tac}>{error || "loading..."}</div>;
     }
-    // console.log("render时候",player1,player2)
     if (player1.public_repos > player2.public_repos) {
       player1.role = "winner";
       player2.role = "loser";

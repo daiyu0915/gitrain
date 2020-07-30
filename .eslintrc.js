@@ -20,7 +20,7 @@ module.exports = {
     "import/no-unresolved": [
       2,
       {
-          "ignore": ["^@/"] // @ 是设置的路径别名
+          "ignore": ["^@/"] // 路径别名
       },
   ],
     }
