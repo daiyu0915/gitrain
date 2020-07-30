@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "b5115632a678214274fc";
+/******/ 	var hotCurrentHash = "165ca75c016e5f2c53ad";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -41988,6 +41988,73 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./src/components/Battle/loadable.js":
+/*!*******************************************!*\
+  !*** ./src/components/Battle/loadable.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_loadable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-loadable */ "./node_modules/react-loadable/lib/index.js");
+/* harmony import */ var react_loadable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_loadable__WEBPACK_IMPORTED_MODULE_1__);
+(function () {
+  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
+  enterModule && enterModule(module);
+})();
+
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
+  return a;
+};
+
+
+ // 通用的过场组件
+
+var loadingComponent = function loadingComponent() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      textAlign: "center",
+      marginTop: "130px"
+    }
+  }, "loading...");
+}; // 过场组件默认采用通用的，若传入了loading，则采用传入的过场组件
+
+
+var _default = function _default(loader) {
+  var loading = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : loadingComponent;
+  return react_loadable__WEBPACK_IMPORTED_MODULE_1___default()({
+    loader: loader,
+    loading: loading
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (_default);
+;
+
+(function () {
+  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(loadingComponent, "loadingComponent", "D:\\pric\\zgit\\gitrain\\src\\components\\Battle\\loadable.js");
+  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\components\\Battle\\loadable.js");
+})();
+
+;
+
+(function () {
+  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
+  leaveModule && leaveModule(module);
+})();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
 /***/ "./src/components/popular/Content.js":
 /*!*******************************************!*\
   !*** ./src/components/popular/Content.js ***!
@@ -42151,24 +42218,25 @@ var Content = /*#__PURE__*/function (_React$Component) {
                 };
               });
 
-              _context.next = 20;
+              _context.next = 21;
               break;
 
             case 16:
               _context.prev = 16;
               _context.t0 = _context["catch"](8);
               console.log("error", _context.t0);
+              window.alert("页面出现一会错误");
 
               _this.setState({
                 end: true
               });
 
-            case 20:
+            case 21:
               _this.setState({
                 loading: false
               });
 
-            case 21:
+            case 22:
             case "end":
               return _context.stop();
           }
@@ -42856,7 +42924,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var font_awesome_less_font_awesome_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! font-awesome/less/font-awesome.less */ "./node_modules/font-awesome/less/font-awesome.less");
 /* harmony import */ var font_awesome_less_font_awesome_less__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(font_awesome_less_font_awesome_less__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _pages_Battle_loadable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/pages/Battle/loadable */ "./src/pages/Battle/loadable.js");
+/* harmony import */ var _components_Battle_loadable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/Battle/loadable */ "./src/components/Battle/loadable.js");
 /* harmony import */ var _pages_Popular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/pages/Popular */ "./src/pages/Popular.js");
 /* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/styles/git.css */ "./src/styles/git.css");
 /* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_git_css__WEBPACK_IMPORTED_MODULE_6__);
@@ -42879,8 +42947,8 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
  // import { extends } from '../../.eslintrc';
 
-var Bat = Object(_pages_Battle_loadable__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Battle/Battle1 */ "./src/pages/Battle/Battle1.js"));
+var Bat = Object(_components_Battle_loadable__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Battle1 */ "./src/pages/Battle1.js"));
 });
 
 function App() {
@@ -42939,73 +43007,6 @@ var _default = Object(react_hot_loader_root__WEBPACK_IMPORTED_MODULE_0__["hot"])
   leaveModule && leaveModule(module);
 })();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./src/pages/Battle/loadable.js":
-/*!**************************************!*\
-  !*** ./src/pages/Battle/loadable.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_loadable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-loadable */ "./node_modules/react-loadable/lib/index.js");
-/* harmony import */ var react_loadable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_loadable__WEBPACK_IMPORTED_MODULE_1__);
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
-  return a;
-};
-
-
- // 通用的过场组件
-
-var loadingComponent = function loadingComponent() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      textAlign: "center",
-      marginTop: "130px"
-    }
-  }, "loading...");
-}; // 过场组件默认采用通用的，若传入了loading，则采用传入的过场组件
-
-
-var _default = function _default(loader) {
-  var loading = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : loadingComponent;
-  return react_loadable__WEBPACK_IMPORTED_MODULE_1___default()({
-    loader: loader,
-    loading: loading
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (_default);
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(loadingComponent, "loadingComponent", "D:\\pric\\zgit\\gitrain\\src\\pages\\Battle\\loadable.js");
-  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\pages\\Battle\\loadable.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
