@@ -150,7 +150,7 @@ class Player extends React.Component {
                       onClick={() => startBattle(player1,player2)}
                       className={style.startBattle1}
                     >提交
-                    </NavLink>
+                    </NavLsdfdfsfsfsink>
                   </div>
             ):''}
               </div>
