@@ -295,7 +295,7 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
 
 
-
+ // import { withFormik } from "formik";
 
 var Player = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(Player, _React$Component);
@@ -315,19 +315,19 @@ var Player = /*#__PURE__*/function (_React$Component) {
       });
     });
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "handk2", function (e) {
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "handleChange2", function (e) {
       _this.setState({
         disabled2: !(e.target.value.length > 0)
       });
     });
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "Blur1", function (e) {
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "playerBlur1", function (e) {
       _this.setState({
         inputValue: e.target.value
       });
     });
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "Blur2", function (e) {
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "playerBlur2", function (e) {
       _this.setState({
         inputValue2: e.target.value
       });
@@ -350,8 +350,7 @@ var Player = /*#__PURE__*/function (_React$Component) {
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "onKeyDown", function (e) {
-      // console.log("键盘",e.nativeEvent)
-      if (e.nativeEvent.code === "Enter") {
+      if (e.nativeEvent.code === 'Enter') {
         _this.setState({
           player1: e.target.value
         });
@@ -359,8 +358,7 @@ var Player = /*#__PURE__*/function (_React$Component) {
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "onKeyDown2", function (e) {
-      // console.log("键盘",e.nativeEvent)
-      if (e.nativeEvent.code === "Enter") {
+      if (e.nativeEvent.code === 'Enter') {
         _this.setState({
           player2: e.target.value
         });
@@ -374,16 +372,16 @@ var Player = /*#__PURE__*/function (_React$Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "cancel", function (player) {
       var _this$setState;
 
-      _this.setState((_this$setState = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState, player, ""), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState, "disabled", true), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState, "disabled2", true), _this$setState));
+      _this.setState((_this$setState = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState, player, ''), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState, "disabled", true), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_this$setState, "disabled2", true), _this$setState));
     });
 
     _this.state = {
-      player1: "",
-      player2: "",
+      player1: '',
+      player2: '',
       disabled: true,
       disabled2: true,
-      inputValue: "",
-      inputValue2: ""
+      inputValue: '',
+      inputValue2: ''
     };
     return _this;
   }
@@ -425,7 +423,7 @@ var Player = /*#__PURE__*/function (_React$Component) {
         className: "fa-stack fa-lg",
         onKeyDown: handleKeyDown,
         onClick: function onClick() {
-          return _this2.cancel("player1");
+          return _this2.cancel('player1');
         },
         onKeyPress: this.handleKeyDown
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
@@ -463,7 +461,7 @@ var Player = /*#__PURE__*/function (_React$Component) {
         className: "fa-stack fa-lg",
         onKeyDown: handleKeyDown,
         onClick: function onClick() {
-          return _this2.cancel("player2");
+          return _this2.cancel('player2');
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
         className: "fa fa-window-close"
@@ -494,7 +492,7 @@ var Player = /*#__PURE__*/function (_React$Component) {
           return startBattle(player1, player2);
         },
         className: _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.startBattle1
-      }, "\u63D0\u4EA4")) : "")));
+      }, "\u63D0\u4EA4")) : '')));
     }
   }, {
     key: "__reactstandin__regenerateByEval",
