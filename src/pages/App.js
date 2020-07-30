@@ -3,13 +3,13 @@ import React from "react";
 // import 'font-awesome/css/font-awesome.min.css';
 import "font-awesome/less/font-awesome.less";
 import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
-import loadable from "@/pages/Battle/loadable";
+import loadable from "@/components/Battle/loadable";
 import Popular from "@/pages/Popular";
 // import Battle1 from '@/pages/Battle/Battle1';
 import "@/styles/git.css";
 // import { extends } from '../../.eslintrc';
 
-const Bat = loadable(() => import("./Battle/Battle1"));
+const Bat = loadable(() => import("./Battle1"));
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import styles from "@/pages/Battle/battle.less";
+import styles from "@/components/Battle/battle.less";
 
 class Result extends React.Component {
   constructor(props) {

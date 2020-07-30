@@ -1,6 +1,6 @@
 import React from "react";
-import Battle from "@/pages/Battle/Battle";
-import Result from "@/pages/Battle/Result";
+import Battle from "@/components/Battle/Battle";
+import Result from "@/components/Battle/Result";
 
 class Battle1 extends React.Component {
   constructor(props) {

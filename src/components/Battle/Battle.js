@@ -1,5 +1,5 @@
 import React from "react";
-import Player from "@/pages/Battle/Player";
+import Player from "@/components/Battle/Player";
 import "@/styles/battle.css";
 // import style from "@/pages/Battle/battle.less"
 

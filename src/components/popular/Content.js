@@ -99,6 +99,7 @@ class Content extends React.Component {
       }));
     } catch (e) {
       console.log("error", e);
+      window.alert("页面出现一会错误")
       this.setState({
         end: true,
       });

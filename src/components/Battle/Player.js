@@ -1,7 +1,7 @@
 import React from "react";
 // import { withFormik } from "formik";
 import { NavLink } from "react-router-dom";
-import style from "@/pages/Battle/battle.less";
+import style from "@/components/Battle/battle.less";
 import "@/styles/index.less";
 
 class Player extends React.Component {
