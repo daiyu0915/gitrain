@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9765852dfd8c4b76307d";
+/******/ 	var hotCurrentHash = "dc8bec2c025f5ac67877";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -42849,12 +42849,12 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
 
 
- // import Combination from '@/pages/Battle/Combination';
+ // import Battle1 from '@/pages/Battle/Battle1';
 
  // import { extends } from '../../.eslintrc';
 
 var Bat = Object(_pages_Battle_loadable__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Battle/Combination */ "./src/pages/Battle/Combination.js"));
+  return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Battle/Battle1 */ "./src/pages/Battle/Battle1.js"));
 });
 
 function App() {
