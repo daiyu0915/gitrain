@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "dc8bec2c025f5ac67877";
+/******/ 	var hotCurrentHash = "b5115632a678214274fc";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -42187,9 +42187,35 @@ var Content = /*#__PURE__*/function (_React$Component) {
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4___default()(Content, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.search();
-    } // eslint-disable-next-line react/no-deprecated
+    value: function () {
+      var _componentDidMount = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                window.addEventListener("hashchange", function () {
+                  _this2.search(true);
+                });
+                window.addEventListener("load", function () {
+                  _this2.search(true);
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
+      }
+
+      return componentDidMount;
+    }() // eslint-disable-next-line react/no-deprecated
 
   }, {
     key: "componentWillReceiveProps",
@@ -42208,7 +42234,7 @@ var Content = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$state = this.state,
           loading = _this$state.loading,
@@ -42252,7 +42278,7 @@ var Content = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_12___default.a, {
         initialLoad: false,
         loadMore: function loadMore() {
-          return _this2.search(false);
+          return _this3.search(false);
         },
         hasMore: !loading || end,
         loader: null

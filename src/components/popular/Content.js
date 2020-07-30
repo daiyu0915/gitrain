@@ -26,12 +26,20 @@ class Content extends React.Component {
       end: false,
       page: 1,
       items: [],
-   
+
     };
   }
 
-  componentDidMount() {
-    this.search();
+
+
+  async componentDidMount() {
+    window.addEventListener("hashchange", () => {
+      this.search(true);
+    });
+    window.addEventListener("load", () => {
+      this.search(true);
+    });
+
   }
 
   // eslint-disable-next-line react/no-deprecated
