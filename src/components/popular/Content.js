@@ -36,10 +36,6 @@ class Content extends React.Component {
     window.addEventListener("hashchange", () => {
       this.search(true);
     });
-    window.addEventListener("load", () => {
-      this.search(true);
-    });
-
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -99,7 +95,6 @@ class Content extends React.Component {
       }));
     } catch (e) {
       console.log("error", e);
-      window.alert("页面出现一会错误")
       this.setState({
         end: true,
       });
