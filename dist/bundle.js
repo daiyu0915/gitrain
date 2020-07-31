@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "1838edc590788f4f751d";
+/******/ 	var hotCurrentHash = "005ebfa7ff17448f29ce";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -3429,7 +3429,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "body{\r\n    /* min-width: 1200px; */\r\n    /* display: flex;\r\n    justify-content: center; */\r\n  }\r\n\r\n\r\n@media (min-width: 992px){\r\n    .col-lg-3 {\r\n      -webkit-box-flex: 0;\r\n          -ms-flex: 0 0 23%;\r\n              flex: 0 0 23%;\r\n      max-width: 23%;\r\n  }\r\n}\r\n\r\n@media (min-width: 768px){\r\n  .col-md-3 {\r\n    max-width: 23%;\r\n}\r\n}\r\n\r\n\r\n@media (min-width: 576px){\r\n.col-sm-6 {\r\n    max-width: 48%;\r\n}\r\n}\r\n\r\n/* \r\n.col-6 {\r\n    -ms-flex: 0 0 50%;\r\n    -webkit-box-flex: 0;\r\n    flex: 0 0 50%;\r\n    max-width: 50%;\r\n} */\r\n\r\n\r\n\r\n  #headbar{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n  #headbar a{\r\n  margin: 10px;\r\n  text-decoration: none;\r\n  font-weight: bolder;\r\n  font-size: 22px;\r\n  }\r\n  \r\n  .content {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-pack: distribute;\r\n        justify-content: space-around;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    max-width: 1200px;\r\n    padding-bottom: 50px;\r\n  \r\n    }\r\n  .card{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    width:23%;\r\n    background-color: #F5F5F5;\r\n    -ms-flex-pack: distribute;\r\n        justify-content: space-around;\r\n    margin-left:auto;\r\n  margin-right:auto;\r\n    margin-top:40px;\r\n    padding-top: 5%;\r\n    padding-bottom: 5%;\r\n    padding-left: 5px;\r\n    padding-right: 5px;\r\n    text-align: center;\r\n  \r\n  }\r\n  .cont {\r\n  \r\n    display: -webkit-box;\r\n  \r\n    display: -ms-flexbox;\r\n  \r\n    display: flex;\r\n    -ms-flex-pack:distribute;\r\n        justify-content:space-around;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    padding-left: 4%;\r\n    padding-right: 4%;\r\n  \r\n    width:400px;\r\n    background-color:#f5f5f5;\r\n    justify-content: space-around;\r\n    margin-left:auto;\r\n  margin-right:auto;\r\n    margin-top:40px;\r\n    padding-top: 5%;\r\n    padding-bottom: 5%;\r\n    text-align: center;\r\n  \r\n  \r\n    /* background-color: rgb(250, 243, 243); */\r\n    \r\n  }\r\n  .it{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient:vertical;\r\n    -webkit-box-direction:normal;\r\n        -ms-flex-direction:column;\r\n            flex-direction:column;\r\n  \r\n   \r\n  }\r\n  .num{\r\n    font-weight: bolder;\r\n    font-size: 28px;\r\n  }\r\n  .name a{\r\n    color: red;\r\n    font-weight: bolder;\r\n    text-decoration: none;\r\n    line-height: 35px;\r\n    font-size: 18px;\r\n  }\r\n  .card li a{\r\n    color:black;\r\n    font-weight: bolder;\r\n    text-decoration: none;\r\n  }\r\n  .card li{\r\n    color:black;\r\n    font-weight: bolder;\r\n    text-decoration: none;\r\n  }\r\n  .desc{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    text-align: left;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    font-weight: bolder;\r\n  }\r\n  .desc i{\r\n  width: 25px;\r\n  height: 25px;\r\n  text-align: center;\r\n  }\r\n  #u{\r\n    color: orange;\r\n  }\r\n  .desc a{\r\n    text-decoration:none;\r\n    color:black;\r\n  }\r\n  #s{\r\n    color:yellow;\r\n  }\r\n  #c{\r\n    color: cornflowerblue;\r\n  }\r\n  #t{\r\n    color: indianred;\r\n  }\r\n  .load{\r\n    text-align: 'center';\r\n  }\r\n  /* .img img{\r\n    \r\n    position:relative;\r\n    background-color:white!important;\r\n    background: url(./loading.gif) 50% no-repeat;\r\n   \r\n  } */\r\n  \r\n  \r\n  \r\n  \r\n  \r\n  \r\n  \r\n  /* .img img:after{\r\n  \r\n    content: \"\";\r\n    \r\n    height: 50px;\r\n    \r\n    width: 50px;\r\n    \r\n    position: absolute;\r\n    \r\n    left: 0;\r\n    \r\n    top: 0;\r\n    \r\n    background: url('./empty.jpg') no-repeat center;\r\n    \r\n    background-size: cover;\r\n    \r\n    } */\r\n  \r\n  ", ""]);
+exports.push([module.i, "body{\r\n    /* min-width: 1200px; */\r\n    /* display: flex;\r\n    justify-content: center; */\r\n  }\r\n\r\n\r\n@media (min-width: 992px){\r\n    .col-lg-3 {\r\n      -webkit-box-flex: 0;\r\n          -ms-flex: 0 0 23%;\r\n              flex: 0 0 23%;\r\n      max-width: 23%;\r\n  }\r\n}\r\n\r\n@media (min-width: 768px){\r\n  .col-md-3 {\r\n    -webkit-box-flex: 0;\r\n        -ms-flex: 0 0 23%;\r\n            flex: 0 0 23%;\r\n    max-width: 23%;\r\n}\r\n}\r\n\r\n\r\n@media (min-width: 576px){\r\n.col-sm-6 {\r\n    max-width: 48%;\r\n}\r\n}\r\n\r\n@media (min-width: 375px){\r\n  .col-sm-6 {\r\n      max-width: 48%;\r\n  }\r\n}\r\n\r\n/* \r\n.col-6 {\r\n    -ms-flex: 0 0 50%;\r\n    -webkit-box-flex: 0;\r\n    flex: 0 0 50%;\r\n    max-width: 50%;\r\n} */\r\n\r\n\r\n\r\n  #headbar{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n  #headbar a{\r\n  margin: 10px;\r\n  text-decoration: none;\r\n  font-weight: bolder;\r\n  font-size: 22px;\r\n  }\r\n  \r\n  .content {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-pack: distribute;\r\n        justify-content: space-around;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    max-width: 1200px;\r\n    padding-bottom: 50px;\r\n  \r\n    }\r\n  .card{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    width:23%;\r\n    background-color: #F5F5F5;\r\n    -ms-flex-pack: distribute;\r\n        justify-content: space-around;\r\n    margin-left:auto;\r\n  margin-right:auto;\r\n    margin-top:40px;\r\n    padding-top: 5%;\r\n    padding-bottom: 5%;\r\n    padding-left: 5px;\r\n    padding-right: 5px;\r\n    text-align: center;\r\n  \r\n  }\r\n  .cont {\r\n  \r\n    display: -webkit-box;\r\n  \r\n    display: -ms-flexbox;\r\n  \r\n    display: flex;\r\n    -ms-flex-pack:distribute;\r\n        justify-content:space-around;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    padding-left: 4%;\r\n    padding-right: 4%;\r\n  \r\n    width:400px;\r\n    background-color:#f5f5f5;\r\n    justify-content: space-around;\r\n    margin-left:auto;\r\n  margin-right:auto;\r\n    margin-top:40px;\r\n    padding-top: 5%;\r\n    padding-bottom: 5%;\r\n    text-align: center;\r\n  \r\n  \r\n    /* background-color: rgb(250, 243, 243); */\r\n    \r\n  }\r\n  .it{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient:vertical;\r\n    -webkit-box-direction:normal;\r\n        -ms-flex-direction:column;\r\n            flex-direction:column;\r\n  \r\n   \r\n  }\r\n  .num{\r\n    font-weight: bolder;\r\n    font-size: 28px;\r\n  }\r\n  .name a{\r\n    color: red;\r\n    font-weight: bolder;\r\n    text-decoration: none;\r\n    line-height: 35px;\r\n    font-size: 18px;\r\n  }\r\n  .card li a{\r\n    color:black;\r\n    font-weight: bolder;\r\n    text-decoration: none;\r\n  }\r\n  .card li{\r\n    color:black;\r\n    font-weight: bolder;\r\n    text-decoration: none;\r\n  }\r\n  .desc{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    text-align: left;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    font-weight: bolder;\r\n  }\r\n  .desc i{\r\n  width: 25px;\r\n  height: 25px;\r\n  text-align: center;\r\n  }\r\n  #u{\r\n    color: orange;\r\n  }\r\n  .desc a{\r\n    text-decoration:none;\r\n    color:black;\r\n  }\r\n  #s{\r\n    color:yellow;\r\n  }\r\n  #c{\r\n    color: cornflowerblue;\r\n  }\r\n  #t{\r\n    color: indianred;\r\n  }\r\n  .load{\r\n    text-align: 'center';\r\n  }\r\n  /* .img img{\r\n    \r\n    position:relative;\r\n    background-color:white!important;\r\n    background: url(./loading.gif) 50% no-repeat;\r\n   \r\n  } */\r\n  \r\n  \r\n  \r\n  \r\n  \r\n  \r\n  \r\n  /* .img img:after{\r\n  \r\n    content: \"\";\r\n    \r\n    height: 50px;\r\n    \r\n    width: 50px;\r\n    \r\n    position: absolute;\r\n    \r\n    left: 0;\r\n    \r\n    top: 0;\r\n    \r\n    background: url('./empty.jpg') no-repeat center;\r\n    \r\n    background-size: cover;\r\n    \r\n    } */\r\n  \r\n  ", ""]);
 // Exports
 module.exports = exports;
 
@@ -42055,6 +42055,144 @@ var _default = function _default(loader) {
 
 /***/ }),
 
+/***/ "./src/components/popular/Cards.js":
+/*!*****************************************!*\
+  !*** ./src/components/popular/Cards.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_popular_LazyLd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/popular/LazyLd */ "./src/components/popular/LazyLd.js");
+/* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/styles/git.css */ "./src/styles/git.css");
+/* harmony import */ var _styles_git_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_git_css__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+(function () {
+  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
+  enterModule && enterModule(module);
+})();
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
+  return a;
+};
+
+ // import Menu from "@/components/popular/Menu";
+
+
+
+
+var Cards = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Cards, _React$Component);
+
+  var _super = _createSuper(Cards);
+
+  function Cards() {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Cards);
+
+    return _super.apply(this, arguments);
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Cards, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          item = _this$props.item,
+          index = _this$props.index;
+      console.log(index);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "card col-lg-3 col-md-3 col-sm-6 col-6"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "it",
+        key: item.id
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "num"
+      }, "#", index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "img"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_popular_LazyLd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        width: 150,
+        height: 150,
+        src: item.owner.avatar_url
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "name"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
+        href: item.html_url
+      }, item.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "desc"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fa fa-user",
+        id: "u"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
+        href: item.owner.html_url
+      }, item.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fa fa-star",
+        id: "s"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, item.stargazers_count, " stars")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fa fa-code-fork",
+        id: "c"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, item.forks_count, " forks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fa fa-exclamation-triangle",
+        id: "t"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, item.open_issues_count, " open_issues")))));
+    }
+  }, {
+    key: "__reactstandin__regenerateByEval",
+    // @ts-ignore
+    value: function __reactstandin__regenerateByEval(key, code) {
+      // @ts-ignore
+      this[key] = eval(code);
+    }
+  }]);
+
+  return Cards;
+}(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
+
+var _default = Cards;
+/* harmony default export */ __webpack_exports__["default"] = (_default);
+;
+
+(function () {
+  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(Cards, "Cards", "D:\\pric\\zgit\\gitrain\\src\\components\\popular\\Cards.js");
+  reactHotLoader.register(_default, "default", "D:\\pric\\zgit\\gitrain\\src\\components\\popular\\Cards.js");
+})();
+
+;
+
+(function () {
+  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
+  leaveModule && leaveModule(module);
+})();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
 /***/ "./src/components/popular/Content.js":
 /*!*******************************************!*\
   !*** ./src/components/popular/Content.js ***!
@@ -42090,7 +42228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var react_infinite_scroller__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-infinite-scroller */ "./node_modules/react-infinite-scroller/index.js");
 /* harmony import */ var react_infinite_scroller__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _components_popular_LazyLd__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/components/popular/LazyLd */ "./src/components/popular/LazyLd.js");
+/* harmony import */ var _components_popular_Cards__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/components/popular/Cards */ "./src/components/popular/Cards.js");
 /* harmony import */ var _components_popular_Loading__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/components/popular/Loading */ "./src/components/popular/Loading.js");
 /* harmony import */ var font_awesome_css_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! font-awesome/css/font-awesome.min.css */ "./node_modules/font-awesome/css/font-awesome.min.css");
 /* harmony import */ var font_awesome_css_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(font_awesome_css_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_15__);
@@ -42227,12 +42365,14 @@ var Content = /*#__PURE__*/function (_React$Component) {
               console.log("error", _context.t0);
 
               _this.setState({
-                end: true
+                end: true,
+                errrr: _context.t0.error || _context.t0.message
               });
 
             case 20:
               _this.setState({
-                loading: false
+                loading: false,
+                errrr: null
               });
 
             case 21:
@@ -42247,7 +42387,8 @@ var Content = /*#__PURE__*/function (_React$Component) {
       loading: false,
       end: false,
       page: 1,
-      items: []
+      items: [],
+      errrr: null
     };
     return _this;
   }
@@ -42265,13 +42406,14 @@ var Content = /*#__PURE__*/function (_React$Component) {
                 window.addEventListener("hashchange", function () {
                   _this2.search(true);
                 });
+                this.search(true);
 
-              case 1:
+              case 2:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2);
+        }, _callee2, this);
       }));
 
       function componentDidMount() {
@@ -42280,21 +42422,17 @@ var Content = /*#__PURE__*/function (_React$Component) {
 
       return componentDidMount;
     }() // eslint-disable-next-line react/no-deprecated
+    // componentWillReceiveProps(nextProps) {
+    //   if (this.props.query !== nextProps.query) {
+    //     this.search(true);
+    //   }
+    // }
+    // componentDidUpdate(prevProps) {
+    //   if (this.props.query !== prevProps.query) {
+    //     this.search(true);
+    //   }
+    // }
 
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      if (this.props.query !== nextProps.query) {
-        this.search(true);
-      }
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (this.props.query !== prevProps.query) {
-        this.search(true);
-      }
-    }
   }, {
     key: "render",
     value: function render() {
@@ -42302,43 +42440,44 @@ var Content = /*#__PURE__*/function (_React$Component) {
 
       var _this$state = this.state,
           loading = _this$state.loading,
-          end = _this$state.end;
-      var cards = this.state.items.map(function (item, key) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-          className: "card col-lg-3 col-md-3 col-sm-6 col-6"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-          className: "it",
-          key: item.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-          className: "num"
-        }, "#", key + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-          className: "img"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_popular_LazyLd__WEBPACK_IMPORTED_MODULE_13__["default"], {
-          width: 150,
-          height: 150,
-          src: item.owner.avatar_url
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-          className: "name"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("a", {
-          href: item.html_url
-        }, item.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-          className: "desc"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("i", {
-          className: "fa fa-user",
-          id: "u"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("a", {
-          href: item.owner.html_url
-        }, item.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("i", {
-          className: "fa fa-star",
-          id: "s"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("span", null, item.stargazers_count, " stars")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("i", {
-          className: "fa fa-code-fork",
-          id: "c"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("span", null, item.forks_count, " forks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("i", {
-          className: "fa fa-exclamation-triangle",
-          id: "t"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("span", null, item.open_issues_count, " open_issues")))));
-      });
+          end = _this$state.end,
+          errrr = _this$state.errrr;
+      console.log(errrr); // const cards = this.state.items.map((item, key) => {
+      //   return (
+      //     <div className="card col-lg-3 col-md-3 col-sm-6 col-6">
+      //       <div className="it" key={item.id}>
+      //         <div className="num">#{key + 1}</div>
+      //         <div className="img">
+      //           {<LazyLd width={150} height={150} src={item.owner.avatar_url} />}
+      //           {/* <img src={item.owner.avatar_url} style={{ width: '150px', height: '150px',}} /> */}
+      //           {/* 无占位图 */}
+      //         </div>
+      //         <div className="name">
+      //           <a href={item.html_url}>{item.name}</a>
+      //         </div>
+      //         <div className="desc">
+      //           <div>
+      //             <i className="fa fa-user" id="u" />
+      //             <a href={item.owner.html_url}>{item.name}</a>
+      //           </div>
+      //           <div>
+      //             <i className="fa fa-star" id="s" />
+      //             <span>{item.stargazers_count} stars</span>
+      //           </div>
+      //           <div>
+      //             <i className="fa fa-code-fork" id="c" />
+      //             <span>{item.forks_count} forks</span>
+      //           </div>
+      //           <div>
+      //             <i className="fa fa-exclamation-triangle" id="t" />
+      //             <span>{item.open_issues_count} open_issues</span>
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   );
+      // });
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_12___default.a, {
         initialLoad: false,
         loadMore: function loadMore() {
@@ -42348,7 +42487,22 @@ var Content = /*#__PURE__*/function (_React$Component) {
         loader: null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "content"
-      }, cards), loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_popular_Loading__WEBPACK_IMPORTED_MODULE_14__["default"], null)));
+      }, errrr && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          justifyContent: 'center'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("span", {
+        style: {
+          width: '50%'
+        }
+      }, errrr)), console.log(this.state.items), this.state.items.map(function (item, key) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_popular_Cards__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          item: item,
+          index: key,
+          key: key
+        });
+      })), loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_components_popular_Loading__WEBPACK_IMPORTED_MODULE_14__["default"], null)));
     }
   }, {
     key: "__reactstandin__regenerateByEval",
@@ -42775,16 +42929,14 @@ var Menu = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Menu);
 
-  function Menu() {
+  function Menu(props) {
+    var _this;
+
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Menu);
 
-    return _super.apply(this, arguments);
-  }
-
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Menu, [{
-    key: "render",
-    value: function render() {
-      var links = [{
+    _this = _super.call(this, props);
+    _this.state = {
+      links: [{
         title: "All",
         query: ""
       }, {
@@ -42802,10 +42954,20 @@ var Menu = /*#__PURE__*/function (_React$Component) {
       }, {
         title: "Python",
         query: "python"
-      }];
+      }]
+    };
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Menu, [{
+    key: "render",
+    value: function render() {
       var r = window.location.href.split("=").slice(1).toString();
       console.log(r);
-      var list = links.map(function (item, key) {
+      var links = this.state.links;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("ul", {
+        id: "headbar"
+      }, links.map(function (item, key) {
         return (
           /*#__PURE__*/
           // <div key={key}>
@@ -42827,10 +42989,7 @@ var Menu = /*#__PURE__*/function (_React$Component) {
             }
           }, item.title)))
         );
-      });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("ul", {
-        id: "headbar"
-      }, list);
+      }));
     }
   }, {
     key: "__reactstandin__regenerateByEval",

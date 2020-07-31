@@ -313,12 +313,62 @@ var Player = /*#__PURE__*/function (_React$Component) {
       _this.setState({
         disabled: !(e.target.value.length > 0)
       });
+
+      var name = e.target.value;
+
+      if (name === "") {
+        return;
+      }
+
+      var reg = /^[\u4e00-\u9fa5]+|[a-zA-Z0-9]+$/;
+
+      if (reg.test(name) === false) {
+        _this.setState({
+          put: 'zxc',
+          disabled: true
+        }); // alert("请不要输入特殊字符!");
+
+
+        document.getElementById("inputName").value = "";
+      }
+
+      _this.setState({
+        put: null // disabled:true,
+
+      });
+
+      e.preventDefault();
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "handleChange2", function (e) {
       _this.setState({
         disabled2: !(e.target.value.length > 0)
       });
+
+      var name = e.target.value;
+
+      if (name === "") {
+        return;
+      }
+
+      var reg = /^[\u4e00-\u9fa5]+|[a-zA-Z0-9]+$/;
+
+      if (reg.test(name) === false) {
+        _this.setState({
+          put2: 'zxc',
+          disabled: true
+        }); // alert("请不要输入特殊字符!");
+
+
+        document.getElementById("inputName").value = "";
+      }
+
+      _this.setState({
+        put: null // disabled:true,
+
+      });
+
+      e.preventDefault();
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this), "playerBlur1", function (e) {
@@ -381,7 +431,9 @@ var Player = /*#__PURE__*/function (_React$Component) {
       disabled: true,
       disabled2: true,
       inputValue: '',
-      inputValue2: ''
+      inputValue2: '',
+      put: null,
+      put2: null
     };
     return _this;
   }
@@ -398,8 +450,19 @@ var Player = /*#__PURE__*/function (_React$Component) {
           disabled = _this$state.disabled,
           disabled2 = _this$state.disabled2,
           player1 = _this$state.player1,
-          player2 = _this$state.player2;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h2", {
+          player2 = _this$state.player2,
+          put = _this$state.put,
+          put2 = _this$state.put2;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          justifyContent: 'center'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        style: {
+          width: '80%'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h2", {
         className: "text-center"
       }, "Players"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -430,15 +493,30 @@ var Player = /*#__PURE__*/function (_React$Component) {
         className: "fa fa-window-close"
       })))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.emptyBox
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          flexDirection: 'column'
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("input", {
         id: "user",
         type: "text",
         placeholder: "github user",
         className: _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.emptyIn,
+        onInput: this.onput,
         onChange: this.handleChange,
         onBlur: this.playerBlur1,
         onKeyDown: this.onKeyDown
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("button", {
+      }), put && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          justifyContent: 'center'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
+        style: {
+          color: 'red'
+        }
+      }, "\u4E0D\u7279\u6B8A!"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("button", {
         disabled: disabled,
         type: "button",
         className: disabled === true ? _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.submitBtn : _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.dis,
@@ -467,14 +545,29 @@ var Player = /*#__PURE__*/function (_React$Component) {
         className: "fa fa-window-close"
       })))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.emptyBox
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          flexDirection: 'column'
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("input", {
         type: "text",
         placeholder: "github user",
         className: _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.emptyIn,
         onChange: this.handleChange2,
+        onInput: this.onput,
         onBlur: this.playerBlur2,
         onKeyDown: this.onKeyDown2
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("button", {
+      }), put2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          justifyContent: 'center'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
+        style: {
+          color: 'red'
+        }
+      }, "\u4E0D\u7279\u6B8A!"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("button", {
         type: "button",
         disabled: disabled2,
         className: disabled2 === true ? _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.submitBtn : _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.dis,
@@ -492,7 +585,7 @@ var Player = /*#__PURE__*/function (_React$Component) {
           return startBattle(player1, player2);
         },
         className: _components_Battle_battle_less__WEBPACK_IMPORTED_MODULE_9___default.a.startBattle1
-      }, "\u63D0\u4EA4")) : '')));
+      }, "\u63D0\u4EA4")) : ''))));
     }
   }, {
     key: "__reactstandin__regenerateByEval",

@@ -4,7 +4,7 @@ import axios from "axios";
 
 // import { Spin } from 'antd';
 import InfiniteScroll from "react-infinite-scroller";
-import LazyLd from "@/components/popular/LazyLd";
+import Cards from "@/components/popular/Cards";
 import Loading from "@/components/popular/Loading";
 import "font-awesome/css/font-awesome.min.css";
 import "font-awesome/less/font-awesome.less";
@@ -26,6 +26,7 @@ class Content extends React.Component {
       end: false,
       page: 1,
       items: [],
+      errrr: null,
 
     };
   }
@@ -36,20 +37,21 @@ class Content extends React.Component {
     window.addEventListener("hashchange", () => {
       this.search(true);
     });
+    this.search(true);
   }
 
   // eslint-disable-next-line react/no-deprecated
-  componentWillReceiveProps(nextProps) {
-    if (this.props.query !== nextProps.query) {
-      this.search(true);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.query !== nextProps.query) {
+  //     this.search(true);
+  //   }
+  // }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.query !== prevProps.query) {
-      this.search(true);
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.query !== prevProps.query) {
+  //     this.search(true);
+  //   }
+  // }
 
   search = async (clear = false) => {
     // 另一种获取地址方法
@@ -97,49 +99,55 @@ class Content extends React.Component {
       console.log("error", e);
       this.setState({
         end: true,
+        errrr: e.error || e.message,
       });
+
     }
 
-    this.setState({ loading: false });
+    this.setState({ 
+      loading: false,
+      errrr: null, 
+    });
   };
 
   render() {
-    const { loading, end } = this.state;
-    const cards = this.state.items.map((item, key) => {
-      return (
-        <div className="card col-lg-3 col-md-3 col-sm-6 col-6">
-          <div className="it" key={item.id}>
-            <div className="num">#{key + 1}</div>
-            <div className="img">
-              {<LazyLd width={150} height={150} src={item.owner.avatar_url} />}
-              {/* <img src={item.owner.avatar_url} style={{ width: '150px', height: '150px',}} /> */}
-              {/* 无占位图 */}
-            </div>
-            <div className="name">
-              <a href={item.html_url}>{item.name}</a>
-            </div>
-            <div className="desc">
-              <div>
-                <i className="fa fa-user" id="u" />
-                <a href={item.owner.html_url}>{item.name}</a>
-              </div>
-              <div>
-                <i className="fa fa-star" id="s" />
-                <span>{item.stargazers_count} stars</span>
-              </div>
-              <div>
-                <i className="fa fa-code-fork" id="c" />
-                <span>{item.forks_count} forks</span>
-              </div>
-              <div>
-                <i className="fa fa-exclamation-triangle" id="t" />
-                <span>{item.open_issues_count} open_issues</span>
-              </div>
-            </div>
-          
-        </div>
-      );
-    });
+    const { loading, end, errrr } = this.state;
+    console.log(errrr)
+    // const cards = this.state.items.map((item, key) => {
+    //   return (
+    //     <div className="card col-lg-3 col-md-3 col-sm-6 col-6">
+    //       <div className="it" key={item.id}>
+    //         <div className="num">#{key + 1}</div>
+    //         <div className="img">
+    //           {<LazyLd width={150} height={150} src={item.owner.avatar_url} />}
+    //           {/* <img src={item.owner.avatar_url} style={{ width: '150px', height: '150px',}} /> */}
+    //           {/* 无占位图 */}
+    //         </div>
+    //         <div className="name">
+    //           <a href={item.html_url}>{item.name}</a>
+    //         </div>
+    //         <div className="desc">
+    //           <div>
+    //             <i className="fa fa-user" id="u" />
+    //             <a href={item.owner.html_url}>{item.name}</a>
+    //           </div>
+    //           <div>
+    //             <i className="fa fa-star" id="s" />
+    //             <span>{item.stargazers_count} stars</span>
+    //           </div>
+    //           <div>
+    //             <i className="fa fa-code-fork" id="c" />
+    //             <span>{item.forks_count} forks</span>
+    //           </div>
+    //           <div>
+    //             <i className="fa fa-exclamation-triangle" id="t" />
+    //             <span>{item.open_issues_count} open_issues</span>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   );
+    // });
     return (
       <div>
         {/* {loading ? <Loading />
@@ -150,8 +158,30 @@ class Content extends React.Component {
           hasMore={!loading || end}
           loader={null}
         >
-          <div className="content">{cards}</div>
+          <div className="content">
+            {(errrr && !loading )&& (
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <span style={{ width: '50%' }}>{errrr}</span> 
+                {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
+              </div>
+            )}
+            
+            
+            {console.log(this.state.items)}
+            {this.state.items.map((item, key) => (
+              <Cards item={item} index={key} key={key} />
+            ))}
+            
+          </div>
           {loading && <Loading />}
+
+
+          {/* {errrr ? (
+            <h3 style={{ textAlign: "center" }}>{error}</h3>
+          ) : (
+            <div style={{ textAlign: "center" }}></div>
+            )} */}
+
         </InfiniteScroll>
       </div>
     );
