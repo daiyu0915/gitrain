@@ -122,7 +122,7 @@ class Content extends React.Component {
               <div>
                 <i className="fa fa-user" id="u" />
                 <a href={item.owner.html_url}>{item.name}</a>
-              </didfgfgfv>
+              </div>
               <div>
                 <i className="fa fa-star" id="s" />
                 <span>{item.stargazers_count} stars</span>
@@ -136,7 +136,7 @@ class Content extends React.Component {
                 <span>{item.open_issues_count} open_issues</span>
               </div>
             </div>
-          </div>
+          
         </div>
       );
     });
