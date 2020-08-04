@@ -9,18 +9,6 @@
     "watch": "webpack --watch",
     "dev": "webpack-dev-server"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,less}": [
-      "prettier --write",
-      "git add"
-    ],
-    "src/**/*.{js,jsx}": "eslint --ext .js"
-  },
   "dependencies": {
     "antd": "^4.4.0",
     "axios": "^0.19.2",
@@ -74,5 +62,17 @@
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,less}": [
+      "prettier --write",
+      "git add"
+    ],
+    "src/**/*.{js,jsx}": "eslint --ext .js"
   }
 }
