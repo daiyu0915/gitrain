@@ -2,6 +2,8 @@ import React from "react";
 // import { withFormik } from "formik";
 import { NavLink } from "react-router-dom";
 import style from "@/components/Battle/battle.less";
+import axios from "axios";
+import LazyLd from "@/components/popular/LazyLd";
 import "@/styles/index.less";
 
 // import { withFormik } from "formik";
@@ -20,7 +22,10 @@ class Player extends React.Component {
       inputValue: '',
       inputValue2: '',
       put: null,
-      put2: null
+      put2: null,
+      lists: [],
+      // onLoading: false,
+      done: false
     };
   }
 
@@ -28,6 +33,7 @@ class Player extends React.Component {
     this.setState({
       disabled: !(e.target.value.length > 0)
     })
+
     const name = e.target.value;
     if (name === "") {
       return;
@@ -53,6 +59,7 @@ class Player extends React.Component {
     this.setState({
       disabled2: !(e.target.value.length > 0)
     })
+    
     const name = e.target.value;
     if (name === "") {
       return;
@@ -72,7 +79,15 @@ class Player extends React.Component {
       // disabled:true,
     });
     e.preventDefault()
+
+
+
   }
+
+
+
+
+
 
   playerBlur1 = (e) => {
     this.setState({
@@ -91,6 +106,7 @@ class Player extends React.Component {
     this.setState({
       player1: inputValue
     })
+    
   }
 
   onClick2 = () => {
@@ -98,7 +114,54 @@ class Player extends React.Component {
     this.setState({
       player2: inputValue2
     })
+
+    this.getimage();
+    // console.log(res.data)
+
+    
   }
+
+  
+  getimage = async () => {
+    // this.setState({ onLoading: true });
+    const { inputValue2 } = this.state;
+    // 在此做提交操作，比如发dispatch等
+    const { transmitDate } = this.props;
+    const url = `https://api.github.com/users/${inputValue2}`;
+
+    try {
+      const res = await axios.get(url);
+      // axios.get(url).then(response => {
+      console.log(res);
+      console.log(res.data.avatar_url);
+      if (res.status === 200) {
+        const { login } = res.data;
+        this.setState({
+          lists: res.data,
+          done: true
+        });
+        const state = {
+          login,
+          click: false
+        };
+        this.setState(state);
+        transmitDate(state);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 403) {
+        console.log(error.message);
+      }
+      // if (error.response && error.response.status === 404) {
+      //   alert(error.message);
+      // }
+
+      // this.setState({
+      //   onLoading: false
+      // });
+    }
+    // event.preventDefault();
+    // this.setState({onLoading:false})
+  };
 
   onKeyDown = (e) => {
     if (e.nativeEvent.code === 'Enter') {
@@ -153,8 +216,9 @@ class Player extends React.Component {
   render() {
     const { handleKeyDown, startBattle } = this.props;
     const { disabled, disabled2, player1, player2, put, put2 } = this.state;
+    console.log(this.state.lists.avatar_url)
     return (
-      <div style={{display:'flex',justifyContent:'center'}}> 
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '80%' }}>
           <h2 className="text-center">Players</h2>
           <form onSubmit={this.handleSubmit}>
@@ -178,10 +242,10 @@ class Player extends React.Component {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                       <input id="user" type="text" placeholder="github user" className={style.emptyIn} onInput={this.onput} onChange={this.handleChange} onBlur={this.playerBlur1} onKeyDown={this.onKeyDown} />
                       {put && (
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                          <span style={{ color: 'red' }}>不特殊!</span>
+                      <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <span style={{ color: 'red' }}>不特殊!</span>
                           {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
-                        </div>
+                      </div>
                         )}
                     </div>
 
@@ -194,7 +258,15 @@ class Player extends React.Component {
                 {player2 ? (
                   <div className={style.selected}>
                     <div className={style.info}>
-                      <div className={style.imgbox}><img src={`https://github.com/${player2}.png?size=200`} alt='' className={style.playerimg} /></div>
+                      <div className={style.imgbox}>
+
+                        {this.state.done ? (
+                          // <LazyLd width={80} height={80} src={this.state.lists.avatar_url} />
+                          <img style={{width:'80px',height:'80px'}} src={this.state.lists.avatar_url} alt="" />
+                        ) : (
+                          <LazyLd width={80} height={80} src={this.state.lists.avatar_url} />
+                        )}
+                      </div>
                       <span>{player2}</span>
                     </div>
                     <div>
@@ -208,10 +280,10 @@ class Player extends React.Component {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                       <input type="text" placeholder="github user" className={style.emptyIn} onChange={this.handleChange2} onInput={this.onput} onBlur={this.playerBlur2} onKeyDown={this.onKeyDown2} />
                       {put2 && (
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <span style={{ color: 'red' }}>不特殊!</span>
-                          {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
-                      </div>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                          <span style={{ color: 'red' }}>不特殊!</span>
+                            {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
+                        </div>
                         )}
                     </div>
                     <button type="button" disabled={disabled2} className={disabled2 === true ? style.submitBtn : style.dis} onClick={this.onClick2}>submit</button>
