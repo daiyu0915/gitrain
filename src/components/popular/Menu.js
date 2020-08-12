@@ -38,9 +38,11 @@ class Menu extends React.Component {
           <Router>
             <div key={key}>
               <Link
+                onClick={() => (console.log(`click${key}`))}
                 to={{ pathname: `/popular/?q=${item.query}` }}
                 style={{ color: r === item.query ? "red" : "black" }}
-              >{item.title}
+              >
+                {item.title}
               </Link>
               {/* <Switch>
               <Route path={{ `/popular/?q=${item.query}` }} component={Content} />

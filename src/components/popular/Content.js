@@ -40,6 +40,7 @@ class Content extends React.Component {
     this.search(true);
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     if (this.props.query !== nextProps.query) {
       this.search(true);

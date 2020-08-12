@@ -25,7 +25,8 @@ class Player extends React.Component {
       put2: null,
       lists: [],
       // onLoading: false,
-      done: false
+      done: false,
+      done2: false,
     };
   }
 
@@ -106,6 +107,7 @@ class Player extends React.Component {
     this.setState({
       player1: inputValue
     })
+    this.getimage();
     
   }
 
@@ -115,20 +117,62 @@ class Player extends React.Component {
       player2: inputValue2
     })
 
-    this.getimage();
+    this.getimage2();
     // console.log(res.data)
 
     
   }
 
-  
   getimage = async () => {
+    // this.setState({ onLoading: true });
+    const { inputValue } = this.state;
+    // 在此做提交操作，比如发dispatch等
+    const { transmitDate } = this.props;
+    const url = `https://api.github.com/users/${inputValue}`;
+
+    try {
+      const res = await axios.get(url);
+      // axios.get(url).then(response => {
+      console.log(res);
+      console.log(res.data.avatar_url);
+      if (res.status === 200) {
+        const { login } = res.data;
+        this.setState({
+          lists: res.data,
+          done: true
+        });
+        const state = {
+          login,
+          click: false
+        };
+        this.setState(state);
+        transmitDate(state);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 403) {
+        console.log(error.message);
+      }
+      // if (error.response && error.response.status === 404) {
+      //   alert(error.message);
+      // }
+
+      // this.setState({
+      //   onLoading: false
+      // });
+    }
+    // event.preventDefault();
+    // this.setState({onLoading:false})
+  };
+
+  
+  getimage2 = async () => {
     // this.setState({ onLoading: true });
     const { inputValue2 } = this.state;
     // 在此做提交操作，比如发dispatch等
     const { transmitDate } = this.props;
     const url = `https://api.github.com/users/${inputValue2}`;
 
+    console.log('url', url);
     try {
       const res = await axios.get(url);
       // axios.get(url).then(response => {
@@ -228,7 +272,16 @@ class Player extends React.Component {
                 {player1 ? (
                   <div className={style.selected}>
                     <div className={style.info}>
-                      <div className={style.imgbox}><img src={`https://github.com/${player1}.png?size=200`} alt='' className={style.playerimg} /></div>
+                      <div className={style.imgbox}>
+                        {/* <img src={`https://github.com/${player1}.png?size=200`} alt='' className={style.playerimg} /> */}
+
+                        {this.state.done2 ? (
+                          // <LazyLd width={80} height={80} src={this.state.lists.avatar_url} />
+                          <img style={{width:'70px',height:'70px'}} src={this.state.lists.avatar_url} alt="" />
+                        ) : (
+                          <LazyLd width={70} height={70} src={this.state.lists.avatar_url} />
+                        )}
+                      </div>
                       <span>{player1}</span>
                     </div>
                     <div>

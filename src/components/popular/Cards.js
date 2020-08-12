@@ -6,7 +6,7 @@ import "@/styles/git.css";
 class Cards extends React.Component {
   render() {
     const { item, index } = this.props;
-    console.log(index)
+    // console.log(index)
     return (
         
       <div className="card col-lg-3 col-md-3 col-sm-6 col-6">
