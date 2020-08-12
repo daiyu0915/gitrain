@@ -40,21 +40,20 @@ class Content extends React.Component {
     this.search(true);
   }
 
-  // eslint-disable-next-line react/no-deprecated
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.query !== nextProps.query) {
-  //     this.search(true);
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.query !== nextProps.query) {
+      this.search(true);
+    }
+  }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.query !== prevProps.query) {
-  //     this.search(true);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.query !== prevProps.query) {
+      this.search(true);
+    }
+  }
 
   search = async (clear = false) => {
-    // 另一种获取地址方法
+    // 另一种获取地址方法   
     // function GetQueryString(name) {
     //   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     //   var r = window.location.search.substr(1).match(reg);  //获取url中"?"符后的字符串并正则匹配
@@ -69,7 +68,7 @@ class Content extends React.Component {
     const page = clear ? 1 : this.state.page;
     const q = window.location.href.split("=").slice(1).toString();
     console.log("q", q);
-    const url = `https://api.github.com/search/repositories?q=stars:>1+language:${q}&sort=stars&order=desc&type=Repositories&page=${page}`;
+    const url = `https://api.github.com/search/repositories?q=stars:>1+language:${q}&sort=stars&order=desc&type=Repositories&page=${page}&per_page=10`;
     console.log("url", url);
     this.setState({ loading: true });
     //
@@ -96,23 +95,23 @@ class Content extends React.Component {
         page: clear ? 1 : state.page + 1,
       }));
     } catch (e) {
-      console.log("error", e);
+      const { response } = e;
+      console.log(response);
+
       this.setState({
         end: true,
-        errrr: e.error || e.message,
+        errrr: (response && response.data && response.data.message) || e.message,
       });
 
     }
 
     this.setState({ 
-      loading: false,
-      errrr: null, 
+      loading: false
     });
   };
 
   render() {
     const { loading, end, errrr } = this.state;
-    console.log(errrr)
     // const cards = this.state.items.map((item, key) => {
     //   return (
     //     <div className="card col-lg-3 col-md-3 col-sm-6 col-6">
@@ -165,9 +164,7 @@ class Content extends React.Component {
                 {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
               </div>
             )}
-            
-            
-            {console.log(this.state.items)}
+
             {this.state.items.map((item, key) => (
               <Cards item={item} index={key} key={key} />
             ))}
@@ -177,9 +174,9 @@ class Content extends React.Component {
 
 
           {/* {errrr ? (
-            <h3 style={{ textAlign: "center" }}>{error}</h3>
+            <h3 style={{ textAlign: "center" }}>{errrr}</h3>
           ) : (
-            <div style={{ textAlign: "center" }}></div>
+            <div> </div>
             )} */}
 
         </InfiniteScroll>
