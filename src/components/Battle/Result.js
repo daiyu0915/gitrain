@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styles from "@/components/Battle/battle.less";
+import LazyLd from "@/components/popular/LazyLd";
 
 class Result extends React.Component {
   constructor(props) {
@@ -63,7 +64,13 @@ class Result extends React.Component {
           <div className={styles.card}>
             <h2 className={styles.tac}>{player1.role}</h2>
             <div className={styles.imgDiv}>
-              <img
+              {/* <img
+                src={`https://github.com/${player1.name}.png?size=200`}
+                alt={player1.name}
+              /> */}
+              <LazyLd
+                width={200}
+                height={200}
                 src={`https://github.com/${player1.name}.png?size=200`}
                 alt={player1.name}
               />
@@ -76,7 +83,13 @@ class Result extends React.Component {
           <div className={styles.card}>
             <h2 className={styles.tac}>{player2.role}</h2>
             <div className={styles.imgDiv}>
-              <img
+              {/* <img
+                src={`https://github.com/${player2.name}.png?size=200`}
+                alt={player2.name}
+              /> */}
+              <LazyLd
+                width={200}
+                height={200}
                 src={`https://github.com/${player2.name}.png?size=200`}
                 alt={player2.name}
               />

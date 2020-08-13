@@ -1,188 +1,169 @@
 import React from "react";
 import axios from "axios";
-// import InfiniteScroll from "react-infinite-scroller";
-
-// import { Spin } from 'antd';
+// import "antd/dist/antd.css";
 import InfiniteScroll from "react-infinite-scroller";
 import Cards from "@/components/popular/Cards";
 import Loading from "@/components/popular/Loading";
-import "font-awesome/css/font-awesome.min.css";
-import "font-awesome/less/font-awesome.less";
+import MyNavLink from "@/components/popular/my-nav-link";
 import "@/styles/git.css";
 
-// class Loading extends React.Component {
-//     render() {
-//       return <div className="load">
-//         loading...
-//         </div>;
-//     }
-//   }
-
-class Content extends React.Component {
+export default class Content extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      end: false,
-      page: 1,
       items: [],
-      errrr: null,
-
+      loading: false,
+      // end: false,
+      page: 1,
+      // querys: '',
+      warningMsg: [],
+      warning: false,
+      tap: [
+        { title: "All", query: "All" },
+        { title: "JavaScript", query: "javascript" },
+        { title: "Ruby", query: "ruby" },
+        { title: "Java", query: "java" },
+        { title: "Css", query: "css" },
+        { title: "Python", query: "python" },
+      ],
     };
   }
 
-
-
   async componentDidMount() {
-    window.addEventListener("hashchange", () => {
-      this.search(true);
-    });
-    this.search(true);
+    const q = window.location.href.split("=")[1];
+    console.log(q);
+    this.search(true, q);
   }
 
-  // eslint-disable-next-line react/no-deprecated
-  componentWillReceiveProps(nextProps) {
-    if (this.props.query !== nextProps.query) {
-      this.search(true);
-    }
-  }
+  //  clicktap = index => {
+  //   console.log("query", index)
+  //   const { tap } = this.state;
+  //   const t = tap[index].query
+  //   console.log('---',t)
+  //   this.setState({
+  //     querys: t
+  //   })
 
-  componentDidUpdate(prevProps) {
-    if (this.props.query !== prevProps.query) {
-      this.search(true);
-    }
-  }
+  //   this.search(true);
+  //   // console.log(this.state.querys)
+  // }
 
-  search = async (clear = false) => {
-    // 另一种获取地址方法   
-    // function GetQueryString(name) {
-    //   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    //   var r = window.location.search.substr(1).match(reg);  //获取url中"?"符后的字符串并正则匹配
-    //   var context = "";
-    //   if (r != null)
-    //     context = r[2];
-    //   reg = null;
-    //   r = null;
-    //   return context === null || context === "" || context === "undefined" ? "" : context;
-    // }
-    // console.log(GetQueryString("q"));
+  // 模拟发送ajax请求
+  search = async (clear = false, q = null) => {
     const page = clear ? 1 : this.state.page;
-    const q = window.location.href.split("=").slice(1).toString();
-    console.log("q", q);
-    const url = `https://api.github.com/search/repositories?q=stars:>1+language:${q}&sort=stars&order=desc&type=Repositories&page=${page}&per_page=10`;
-    console.log("url", url);
-    this.setState({ loading: true });
-    //
-    //   try {
-    //     const res = await axios.get(url)
-    //     console.log('res', res.data)
-    //     this.setState({
-    //       items: res.data.items
-    //     })
-    //   } catch (e) {
-    //     console.log('error', e)
-    //   }
-    //   this.setState({ loading: false });
-    // }
+
+    const { query } = this.state;
+
+    let newQuery = q;
+    if (!q) {
+      newQuery = query;
+    }
+
+    this.setState({
+      loading: true,
+      warning: false,
+      query: newQuery,
+    });
 
     if (clear) {
       this.setState({ items: [] });
     }
+    let url = `https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&order=desc&type=Repositories&page=${page}&per_page=10`;
+    if (!newQuery || newQuery === "All") {
+      url = `https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&order=desc&type=Repositories&page=${page}&per_page=10`;
+    } else {
+      url = `https://api.github.com/search/repositories?q=stars:%3E1+language:${newQuery}&sort=stars&order=desc&type=Repositories&page=${page}&per_page=10`;
+    }
+
     try {
       const res = await axios.get(url);
-      console.log("res", res.data);
       this.setState((state) => ({
         items: clear ? res.data.items : [...state.items, ...res.data.items],
         page: clear ? 1 : state.page + 1,
+        loading: false,
       }));
-    } catch (e) {
-      const { response } = e;
-      console.log(response);
+    } catch (error) {
+      if (error.response && error.response.status === 403) {
+        const msg =
+          error.response && error.response.data && error.response.data.message;
 
-      this.setState({
-        end: true,
-        errrr: (response && response.data && response.data.message) || e.message,
-      });
-
+        this.setState({
+          warningMsg: msg,
+          warning: true,
+        });
+      }
+      if (error.response && error.response.status === 404) {
+        const msg = error.response.data;
+        const warn = Object.values(msg);
+        this.setState({
+          warningMsg: warn[0],
+          warning: true,
+        });
+      }
     }
-
-    this.setState({ 
-      loading: false
-    });
+    this.setState({ loading: false });
   };
 
   render() {
-    const { loading, end, errrr } = this.state;
-    // const cards = this.state.items.map((item, key) => {
-    //   return (
-    //     <div className="card col-lg-3 col-md-3 col-sm-6 col-6">
-    //       <div className="it" key={item.id}>
-    //         <div className="num">#{key + 1}</div>
-    //         <div className="img">
-    //           {<LazyLd width={150} height={150} src={item.owner.avatar_url} />}
-    //           {/* <img src={item.owner.avatar_url} style={{ width: '150px', height: '150px',}} /> */}
-    //           {/* 无占位图 */}
-    //         </div>
-    //         <div className="name">
-    //           <a href={item.html_url}>{item.name}</a>
-    //         </div>
-    //         <div className="desc">
-    //           <div>
-    //             <i className="fa fa-user" id="u" />
-    //             <a href={item.owner.html_url}>{item.name}</a>
-    //           </div>
-    //           <div>
-    //             <i className="fa fa-star" id="s" />
-    //             <span>{item.stargazers_count} stars</span>
-    //           </div>
-    //           <div>
-    //             <i className="fa fa-code-fork" id="c" />
-    //             <span>{item.forks_count} forks</span>
-    //           </div>
-    //           <div>
-    //             <i className="fa fa-exclamation-triangle" id="t" />
-    //             <span>{item.open_issues_count} open_issues</span>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   );
-    // });
+    const { tap, items, warningMsg, warning, loading, query } = this.state;
+    // console.log("query===", this.state.querys,window.location.href.split("=")[1])
+    const lists = items.map((item, key) => (
+      <Cards item={item} index={key} key={key} />
+    ));
+    let langs = window.location.href.split("=")[1];
+    if (langs === undefined || langs === "") {
+      langs = "All";
+    }
+    const list = tap.map((m) => (
+      <ul key={m.query} style={{ marginRight: 5, color: "black" }}>
+        <MyNavLink
+          style={{
+            marginRight: 4,
+            color: langs === m.query ? "red" : "black",
+          }}
+          to={{
+            pathname: "/popular",
+            search: `?lang=${m.query}`,
+          }}
+          onClick={() => this.search(true, m.query)}
+          // onKeyDown={this.handleKeyDown}
+        >
+          {m.title}
+        </MyNavLink>
+      </ul>
+    ));
+
     return (
       <div>
-        {/* {loading ? <Loading />
-          : ( */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ul id="headbar">{list}</ul>
+        </div>
         <InfiniteScroll
           initialLoad={false}
-          loadMore={() => this.search(false)}
-          hasMore={!loading || end}
+          loadMore={() => this.search(false, query)}
+          hasMore={!loading && !warning}
           loader={null}
         >
-          <div className="content">
-            {(errrr && !loading )&& (
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <span style={{ width: '50%' }}>{errrr}</span> 
-                {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
-              </div>
-            )}
-
-            {this.state.items.map((item, key) => (
-              <Cards item={item} index={key} key={key} />
-            ))}
-            
-          </div>
-          {loading && <Loading />}
-
-
-          {/* {errrr ? (
-            <h3 style={{ textAlign: "center" }}>{errrr}</h3>
+          <div className="content">{lists}</div>
+          {warning ? (
+            // <p style={{ color: "red", textAlign: "center" }}>{warningMsg}</p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                color: "red",
+              }}
+            >
+              <span style={{ width: "50%" }}>{warningMsg}</span>
+              {/* message= type="error" showIcon style={{ width: '50%' }} /> */}
+            </div>
           ) : (
-            <div> </div>
-            )} */}
+            ""
+          )}
 
+          {loading && <Loading />}
         </InfiniteScroll>
       </div>
     );
   }
 }
-export default Content;
