@@ -24,6 +24,7 @@ class Player extends React.Component {
       put: null,
       put2: null,
       lists: [],
+      lists2: [],
       // onLoading: false,
       done: false,
       done2: false,
@@ -123,11 +124,12 @@ class Player extends React.Component {
     
   }
 
+
   getimage = async () => {
     // this.setState({ onLoading: true });
     const { inputValue } = this.state;
     // 在此做提交操作，比如发dispatch等
-    const { transmitDate } = this.props;
+    // const { transmitDate } = this.props;
     const url = `https://api.github.com/users/${inputValue}`;
 
     try {
@@ -136,25 +138,25 @@ class Player extends React.Component {
       console.log(res);
       console.log(res.data.avatar_url);
       if (res.status === 200) {
-        const { login } = res.data;
+        // const { login } = res.data;
         this.setState({
           lists: res.data,
           done: true
         });
-        const state = {
-          login,
-          click: false
-        };
-        this.setState(state);
-        transmitDate(state);
+        // const state = {
+        //   login,
+        //   click: false
+        // };
+        // this.setState(state);
+        // transmitDate(state);
       }
     } catch (error) {
       if (error.response && error.response.status === 403) {
         console.log(error.message);
       }
-      // if (error.response && error.response.status === 404) {
-      //   alert(error.message);
-      // }
+      if (error.response && error.response.status === 404) {
+        alert(error.message);
+      }
 
       // this.setState({
       //   onLoading: false
@@ -169,27 +171,26 @@ class Player extends React.Component {
     // this.setState({ onLoading: true });
     const { inputValue2 } = this.state;
     // 在此做提交操作，比如发dispatch等
-    const { transmitDate } = this.props;
-    const url = `https://api.github.com/users/${inputValue2}`;
+    // const { transmitDate } = this.props;
+    const url2 = `https://api.github.com/users/${inputValue2}`;
 
-    console.log('url', url);
+    console.log('url', url2);
     try {
-      const res = await axios.get(url);
+      const res2 = await axios.get(url2);
       // axios.get(url).then(response => {
-      console.log(res);
-      console.log(res.data.avatar_url);
-      if (res.status === 200) {
-        const { login } = res.data;
+      console.log(res2);
+      console.log(res2.data.avatar_url);
+      if (res2.status === 200) {
+        // const { login2 } = res2.data;
         this.setState({
-          lists: res.data,
-          done: true
+          lists2: res2.data,
+          done2: true
         });
-        const state = {
-          login,
-          click: false
-        };
-        this.setState(state);
-        transmitDate(state);
+        // this.setState({
+        //   login2,
+        //   // click2: false
+        // });
+        // transmitDate(state);
       }
     } catch (error) {
       if (error.response && error.response.status === 403) {
@@ -275,7 +276,7 @@ class Player extends React.Component {
                       <div className={style.imgbox}>
                         {/* <img src={`https://github.com/${player1}.png?size=200`} alt='' className={style.playerimg} /> */}
 
-                        {this.state.done2 ? (
+                        {this.state.done ? (
                           // <LazyLd width={80} height={80} src={this.state.lists.avatar_url} />
                           <img style={{width:'70px',height:'70px'}} src={this.state.lists.avatar_url} alt="" />
                         ) : (
@@ -302,7 +303,7 @@ class Player extends React.Component {
                         )}
                     </div>
 
-                    <button disabled={disabled} type="button" className={disabled === true ? style.submitBtn : style.dis} onClick={this.onClick}>submit</button>
+                    <button disabled={disabled} type="button" id="123" className={disabled === true ? style.submitBtn : style.dis} onClick={this.onClick}>submit</button>
                   </div>
                   )}
               </div>
@@ -313,11 +314,11 @@ class Player extends React.Component {
                     <div className={style.info}>
                       <div className={style.imgbox}>
 
-                        {this.state.done ? (
+                        {this.state.done2 ? (
                           // <LazyLd width={80} height={80} src={this.state.lists.avatar_url} />
-                          <img style={{width:'80px',height:'80px'}} src={this.state.lists.avatar_url} alt="" />
+                          <img style={{width:'80px',height:'80px'}} src={this.state.lists2.avatar_url} alt="" />
                         ) : (
-                          <LazyLd width={80} height={80} src={this.state.lists.avatar_url} />
+                          <LazyLd width={80} height={80} src={this.state.lists2.avatar_url} />
                         )}
                       </div>
                       <span>{player2}</span>
@@ -339,7 +340,7 @@ class Player extends React.Component {
                         </div>
                         )}
                     </div>
-                    <button type="button" disabled={disabled2} className={disabled2 === true ? style.submitBtn : style.dis} onClick={this.onClick2}>submit</button>
+                    <button type="button" disabled={disabled2} id="124" className={disabled2 === true ? style.submitBtn : style.dis} onClick={this.onClick2}>submit</button>
                   </div>
                   )}
               </div>
